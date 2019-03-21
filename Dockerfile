@@ -7,7 +7,7 @@ COPY sampleui/package*.json ./
 RUN npm install
 
 COPY sampleui/. .
-
+#cc
 RUN npm run build
 # expose port 80
 EXPOSE 80
