@@ -1,12 +1,11 @@
-FROM node:alpine AS builder
+FROM node:8.11.2-alpine as node
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY . .
+COPY sampleui/package*.json ./
 
-RUN npm install && \
-    npm run build
+RUN npm install
 
-FROM nginx:alpine
+COPY sampleui/. .
 
-COPY --from=builder /app/dist/* /usr/share/nginx/html/
+RUN npm run build
