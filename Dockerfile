@@ -9,3 +9,4 @@ RUN npm install
 COPY sampleui/. .
 
 RUN npm run build
+EXPOSE 80
